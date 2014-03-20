@@ -10,7 +10,7 @@ class Mail_list():
         return self.list_persons[name]
 
     def show_list_content(self, file_open):
-        file_content=file_open.read()
+        file_content=(file_open).read()
         names_and_mails1=file_content.split('\n')
         del names_and_mails1[len(names_and_mails1)-1]
         names_and_mails2=[]
@@ -25,9 +25,8 @@ class Mail_list():
 
     def add_person(self,file_to_write, name, email):
         self.list_persons[name] = email
-        file_write = open(file_to_write, "w")
+        file_write = open(file_to_write + '.txt', "w")
         for key in self.list_persons:
-            print(key, self.list_persons[key])
             file_write.write(key+" - "+self.list_persons[key]+ "\n")
         file_write.close()
         return self.list_persons
@@ -53,3 +52,13 @@ def show_lists():
         k=k+1
     return files
 
+def search_mail(name):
+    files=show_lists()
+    matches=[]
+    for file in files:
+        file_to_read=open(file, 'r')
+        file_content=file_to_read.read()
+        if name in file_content:
+            matches.append(file) 
+    
+    return matches
