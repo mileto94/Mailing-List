@@ -6,14 +6,14 @@ class TestMail(unittest.TestCase):
 
 
     def test_exist_name_and_email(self):
-        new_list = mail.Mail_list({"ana":"ana@gmail.com" , "joro": "joro.dir.bg"})
-        self.assertEqual("ana@gmail.com",new_list.get_mail("ana"))
+        new_list = mail.Mail_list({"ana gosdsad":"ana@gmail.com" , "joro": "joro.dir.bg"})
+        self.assertEqual("ana@gmail.com",new_list.get_mail("ana gosdsad"))
 
     def test_add_person(self):
         new_file = open("FMI", "w+")
         new_list = mail.Mail_list({"george": "george@sbv.bg", "emma": "emma@abv.bg"})
-        new_list.add_person("FMI", "ani", "ani@abv.bg")
-        self.assertEqual({'george':"george@sbv.bg", "emma":"emma@abv.bg", "ani":"ani@abv.bg"}, new_list.show_list_content(new_file))
+        new_list.add_person("FMI", "ani sdfsdf", "ani@abv.bg")
+        self.assertEqual({'george':"george@sbv.bg", "emma":"emma@abv.bg", "ani sdfsdf":"ani@abv.bg"}, new_list.show_list_content(new_file))
         new_file.close()
 
 

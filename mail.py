@@ -24,7 +24,6 @@ class Mail_list():
         self.list_persons[name] = email
         file_write = open(file_to_write, "w")
         for key in self.list_persons:
-            print(key, self.list_persons[key])
             file_write.write(key+" "+self.list_persons[key]+ "\n")
         file_write.close()
         return self.list_persons
