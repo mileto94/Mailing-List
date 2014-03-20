@@ -12,11 +12,8 @@ class TestMail(unittest.TestCase):
     def test_add_person(self):
         new_file = open("FMI.txt", "w+")
         new_list = mail.Mail_list({"george": "george@sbv.bg", "emma": "emma@abv.bg"})
-        new_list.add_person("FMI.txt", "ani", "ani@abv.bg")
-        self.assertEqual("george george@sbv.bg \n emma emma@abv.bg \n ani ani@abv.bg", new_list.show_list_content(new_file))
-        # d = new_list.items().split()
-        # r = d[0] + d[1]
-        # self.assertEqual(r, new_list.show_list_content(new_file))
+        new_list.add_person("FMI", "ani", "ani@abv.bg")
+        self.assertEqual({'george':"george@sbv.bg", "emma":"emma@abv.bg", "ani":"ani@abv.bg"}, new_list.show_list_content(new_file))
         new_file.close()
 
 

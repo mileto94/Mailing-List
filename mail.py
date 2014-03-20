@@ -11,6 +11,12 @@ class Mail_list():
 
     def show_list_content(self, file_open):
         file_content=file_open.read()
+        names_and_mails=file_content.split()
+        file_content={}
+        index=0
+        while index<len(names_and_mails):
+            file_content[names_and_mails[index]]=names_and_mails[index+1]
+            index=index+2
         return file_content
 
 
