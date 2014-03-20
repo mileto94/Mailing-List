@@ -11,11 +11,17 @@ class Mail_list():
 
     def show_list_content(self, file_open):
         file_content=file_open.read()
+        names_and_mails=file_content.split()
+        file_content={}
+        index=0
+        while index<len(names_and_mails):
+            file_content[names_and_mails[index]]=names_and_mails[index+1]
+            index=index+2
         return file_content
 
 
-    def add_person(self,file_to_write, name):
-        self.list_persons[name] = self.email
+    def add_person(self,file_to_write, name, email):
+        self.list_persons[name] = email
         file_write = open(file_to_write, "w")
         for key in self.list_persons:
             print(key, self.list_persons[key])
