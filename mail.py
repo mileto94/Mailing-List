@@ -8,18 +8,19 @@ class Mail_list():
 
     def get_mail(self, name):
         return self.list_persons[name]
-    # def show_list(self, 1):
-    #   list_to_display=[]
-    #   for key in self.list_persons:
-    #       list_to_display.append(key)
-    #   return list_to_display
 
-    def show_list_content(self):
-        file_content = file_open.read()
+    def show_list_content(self, file_open):
+        file_content=file_open.read()
         return file_content
 
-    def add_person(self,name, email):
-        self.list_persons[name] = email
+
+    def add_person(self,file_to_write, name):
+        self.list_persons[name] = self.email
+        file_write = open(file_to_write, "w")
+        for key in self.list_persons:
+            print(key, self.list_persons[key])
+            file_write.write(key+" "+self.list_persons[key]+ "\n")
+        file_write.close()
         return self.list_persons
 
 def create (name):
@@ -43,8 +44,3 @@ def show_lists():
         k=k+1
     return files
 
-def write_into_file(filename, list_persons):
-    file = open(filename, "w+")
-    for people in list_persons:
-        file_content = file.write(people + " " + file_persons[people])
-    file.close()

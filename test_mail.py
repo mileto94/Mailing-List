@@ -9,14 +9,13 @@ class TestMail(unittest.TestCase):
         new_list = mail.Mail_list({"ana":"ana@gmail.com" , "joro": "joro.dir.bg"})
         self.assertEqual("ana@gmail.com",new_list.get_mail("ana"))
 
-    def test_add_new_person(self):
+    def test_add_person(self):
+        new_file = open("FMI", "w+")
         new_list = mail.Mail_list({"george": "george@sbv.bg", "emma": "emma@abv.bg"})
-        new_list.add_person("john", "john@gmail.bg")
-        self.assertEqual("john@gmail.bg", new_list.get_mail("john"))
+        new_list.add_person("FMI", "ani", "ani@abv.bg")
+        self.assertEqual("george george@sbv.bg \n emma emma@abv.bg \n ani ani@abv.bg", new_list.show_list_content(new_file))
+        new_file.close()
 
-    def test_write_into_file(self):
-        new_file = mail.create("test")
-        file = open()
 
 
 if __name__ == '__main__':
