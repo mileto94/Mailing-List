@@ -11,12 +11,15 @@ class Mail_list():
 
     def show_list_content(self, file_open):
         file_content=file_open.read()
-        names_and_mails=file_content.split()
+        names_and_mails1=file_content.split('\n')
+        del names_and_mails1[len(names_and_mails1)-1]
+        names_and_mails2=[]
+        for item in names_and_mails1:
+            names_and_mails2.append(item.split(' - '))
         file_content={}
-        index=0
-        while index<len(names_and_mails):
-            file_content[names_and_mails[index]]=names_and_mails[index+1]
-            index=index+2
+        for couple in names_and_mails2:
+            file_content[couple[0]]=couple[1]
+        
         return file_content
 
 
@@ -25,7 +28,7 @@ class Mail_list():
         file_write = open(file_to_write, "w")
         for key in self.list_persons:
             print(key, self.list_persons[key])
-            file_write.write(key+" "+self.list_persons[key]+ "\n")
+            file_write.write(key+" - "+self.list_persons[key]+ "\n")
         file_write.close()
         return self.list_persons
 
