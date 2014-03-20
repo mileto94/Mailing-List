@@ -14,7 +14,9 @@ class TestMail(unittest.TestCase):
         new_list.add_person("john", "john@gmail.bg")
         self.assertEqual("john@gmail.bg", new_list.get_mail("john"))
 
-#    def test_write_into_file(self):
+    def test_write_into_file(self):
+        new_file = mail.create("test")
+        file = open()
 
 
 if __name__ == '__main__':
