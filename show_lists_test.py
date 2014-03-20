@@ -9,7 +9,5 @@ class show_listsTest(unittest.TestCase):
         mail.create("FMI")
         list_of_files = glob.glob("*.txt")
         self.assertEqual(list_of_files, mail.show_lists())
-
-
 if __name__ == '__main__':
     unittest.main()
