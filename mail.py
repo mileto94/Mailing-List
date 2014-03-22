@@ -25,11 +25,7 @@ class Mail_list():
         self.list_persons[name] = email
         file_write = open(file_to_write + '.txt', "w")
         for key in self.list_persons:
-<<<<<<< HEAD
             file_write.write(key + " - " + self.list_persons[key] + "\n")
-=======
-            file_write.write(key+" "+self.list_persons[key]+ "\n")
->>>>>>> master
         file_write.close()
         return self.list_persons
 
