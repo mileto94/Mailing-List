@@ -26,6 +26,6 @@ class TestMail(unittest.TestCase):
         new_file2.close()
         self.assertEqual(['FMI.txt', 'we_are_awesome.txt'], mail.search_mail('emma'))
 
-
+    
 if __name__ == '__main__':
     unittest.main()

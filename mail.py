@@ -1,4 +1,5 @@
 import glob
+import os
 
 
 class Mail_list():
@@ -60,3 +61,7 @@ def search_mail(name):
         if name in file_content:
             matches.append(file)
     return matches
+
+
+def update_listname(current_name, new_name):
+    os.rename(current_name, new_name)
